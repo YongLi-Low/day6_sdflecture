@@ -90,9 +90,14 @@ public final class App {
             return a + b;
         };
 
+        MyMessageInterface printString = (a) -> {
+            System.out.println(a);
+        };
+
         System.out.println("Add operation: " + addOperation.process(1, 6));
         System.out.println("Multiply operation: " + multiplyOperation.process(15, 8));
         System.out.println("Add operation: " + minusOperation.process(4, 16));
         System.out.println("Concate String: " + concateString.process("Hello ", "world"));
+        printString.printMessage("Let's take a break now.");
     }
 }
