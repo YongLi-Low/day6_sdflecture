@@ -22,5 +22,12 @@ public final class App {
         });
 
         thread1.start();
+
+        MyRunnableImplementation mRI = new MyRunnableImplementation();
+        Thread thread2 = new Thread(mRI);
+        thread2.start();
+
+        Thread thread3 = new Thread(mRI);
+        thread3.start();
     }
 }
