@@ -66,12 +66,33 @@ public final class App {
 
         // Never specify any thread number but cachedthreadpool will determine how many threads it will use
         // The limit is how many threads your CPU has.
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        executorService.execute(mRI1);
-        executorService.execute(mRI2);
-        executorService.execute(mRI3);
-        executorService.execute(mRI4);
-        executorService.execute(mRI5);
-        executorService.shutdown();
-}
+        // ExecutorService executorService = Executors.newCachedThreadPool();
+        // executorService.execute(mRI1);
+        // executorService.execute(mRI2);
+        // executorService.execute(mRI3);
+        // executorService.execute(mRI4);
+        // executorService.execute(mRI5);
+        // executorService.shutdown();
+
+        MyRunnableInterface<Integer> addOperation = (a, b) -> {
+            return a + b;
+        };  // need to add semicolon at the end
+
+        MyRunnableInterface<Integer> multiplyOperation = (a, b) -> {
+            return a * b;
+        };
+
+        MyRunnableInterface<Integer> minusOperation = (a, b) -> {
+            return a - b;
+        };
+
+        MyRunnableInterface<String> concateString = (a, b) -> {
+            return a + b;
+        };
+
+        System.out.println("Add operation: " + addOperation.process(1, 6));
+        System.out.println("Multiply operation: " + multiplyOperation.process(15, 8));
+        System.out.println("Add operation: " + minusOperation.process(4, 16));
+        System.out.println("Concate String: " + concateString.process("Hello ", "world"));
+    }
 }
